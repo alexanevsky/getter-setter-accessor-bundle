@@ -31,9 +31,20 @@ class ObjectSetter
         return $this->setter->isNullable();
     }
 
+    /**
+     * @return string[]
+     */
     public function getTypes(): array
     {
         return $this->setter->getTypes();
+    }
+
+    /**
+     * @return object[]
+     */
+    public function getAttributes(): array
+    {
+        return $this->setter->getAttributes();
     }
 
     /**

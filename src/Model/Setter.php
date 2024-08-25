@@ -4,6 +4,10 @@ namespace Alexanevsky\GetterSetterAccessorBundle\Model;
 
 class Setter
 {
+    /**
+     * @param string[]               $types
+     * @param \ReflectionAttribute[] $attributes
+     */
     public function __construct(
         private string  $name,
         private ?string $property,
@@ -44,9 +48,28 @@ class Setter
         return $this->nullable;
     }
 
+    /**
+     * @return string[]
+     */
     public function getTypes(): array
     {
         return $this->types;
+    }
+
+    /**
+     * @return object[]
+     */
+    public function getAttributes(): array
+    {
+        $output = [];
+
+        foreach ($this->attributes as $attr) {
+            if (!isset($output[$attr->getName()])) {
+                $output[$attr->getName()] = $this->getAttribute($attr->getName());
+            }
+        }
+
+        return array_values($output);
     }
 
     /**

@@ -35,9 +35,20 @@ class ObjectGetter
         return $this->getter->isNullable();
     }
 
+    /**
+     * @return string[]
+     */
     public function getTypes(): array
     {
         return $this->getter->getTypes();
+    }
+
+    /**
+     * @return object[]
+     */
+    public function getAttributes(): array
+    {
+        return $this->getter->getAttributes();
     }
 
     /**
