@@ -19,7 +19,7 @@ class ObjectGetter
         } elseif ($this->getter->isGettableByProperty()) {
             $property = $this->getter->getProperty();
 
-            return $this->object->$property;
+            return $this->object->$property ?? null;
         }
 
         return null;
